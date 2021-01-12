@@ -44,7 +44,7 @@ def function_name(message):
     bot.reply_to(message, msgs.random())
 
 
-@bot.message_handler(regexp="^+sono.+(triste|demotivato|depresso)")
+@bot.message_handler(regexp="^sono.+(triste|demotivato|depresso)")
 def function_name(message):
     msg = f"Spero che questa frase ti faccia sentire forte come quando conquisto il sud. {quotes.random()}"
     bot.reply_to(message, msg)
