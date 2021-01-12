@@ -10,6 +10,9 @@ class RandomList(List):
         return choice(self)
 
 
+with open('./quotes.txt', 'r', encoding='utf8') as f:
+    quotes = RandomList(f.readlines())
+
 bot = telebot.TeleBot(TOKEN, parse_mode='MARKDOWN')
 
 
@@ -25,17 +28,26 @@ def function_name(message):
                        f"Ma secondo te {username}? Invado il sud!"])
     bot.reply_to(message, msgs.random())
 
+
 @bot.message_handler(regexp="^sime.+dove.+sei")
 def function_name(message):
-    username =message.from_user.username
+    username = message.from_user.username
     msgs = RandomList([f"Ma che domande {username}, sono a Sud!",
                        f"Ma come {username}. Sto andando a sud!"])
     bot.reply_to(message, msgs.random())
+
 
 @bot.message_handler(regexp="dario|oirad")
 def function_name(message):
     msgs = RandomList(["Dario l'hai aperto il fusto?",
                        "Ma quante ne metti giu dario?"])
     bot.reply_to(message, msgs.random())
+
+
+@bot.message_handler(regexp="sono.+(triste|demotivato|depresso).+sime")
+def function_name(message):
+    msg = f"Spero che questa frase ti faccia sentire forte come quando conquisto il sud. {quotes.random()}"
+    bot.reply_to(message, msg)
+
 
 bot.polling()
