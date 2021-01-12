@@ -20,7 +20,7 @@ def send_welcome(message):
 
 @bot.message_handler(regexp="^sime.+cosa.+fai")
 def function_name(message):
-    msgs = RandomList(["E come stasera cosa faccio, prendo il sud",
+    msgs = RandomList(["E come cosa faccio, prendo il sud",
                        "Dopo westeros!"])
     bot.reply_to(message, msgs.random())
 
