@@ -1,9 +1,12 @@
 from typing import Any, List
 import telebot
 from random import choice
+import logging
 
 TOKEN = "1524901568:AAHPPTHQ6G0DpPS1ewokJC0G8_vUvjc8WZc"
 
+logger = telebot.logger
+telebot.logger.setLevel(logging.DEBUG)
 
 class RandomList(List):
     def random(self) -> Any:
