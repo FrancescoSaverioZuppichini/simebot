@@ -29,7 +29,7 @@ def function_name(message):
     bot.reply_to(message, msgs.random())
 
 
-@bot.message_handler(regexp="^sime.+dove.+sei")
+@bot.message_handler(regexp="^sime.+dove.+(sei|vai)")
 def function_name(message):
     username = message.from_user.username
     msgs = RandomList([f"Ma che domande {username}, sono a Sud!",
@@ -44,9 +44,15 @@ def function_name(message):
     bot.reply_to(message, msgs.random())
 
 
-@bot.message_handler(regexp="sono.+(triste|demotivato|depresso).+sime")
+@bot.message_handler(regexp="^+sono.+(triste|demotivato|depresso)")
 def function_name(message):
     msg = f"Spero che questa frase ti faccia sentire forte come quando conquisto il sud. {quotes.random()}"
+    bot.reply_to(message, msg)
+
+@bot.message_handler(regexp="sime{3}")
+def function_name(message):
+    username = message.from_user.username
+    msg = f"Stai cane dio calmo {username}!"
     bot.reply_to(message, msg)
 
 
