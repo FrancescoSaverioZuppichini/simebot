@@ -20,8 +20,9 @@ def send_welcome(message):
 
 @bot.message_handler(regexp="^sime.+cosa.+fai")
 def function_name(message):
+    print(message)
     msgs = RandomList(["E come cosa faccio, prendo il sud",
-                       "Dopo westeros!"])
+                       "Invado il sud"])
     bot.reply_to(message, msgs.random())
 
 
@@ -30,6 +31,5 @@ def function_name(message):
     msgs = RandomList(["Dario l'hai aperto il fusto?",
                        "Ma quante ne metti giu dario?"])
     bot.reply_to(message, msgs.random())
-
 
 bot.polling()
