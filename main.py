@@ -34,5 +34,4 @@ def function_name(message):
                        "Ma quante ne metti giu dario?"])
     bot.reply_to(message, msgs.random())
 
-
 bot.polling()
