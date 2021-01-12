@@ -18,13 +18,19 @@ def send_welcome(message):
     bot.reply_to(message, "Sono simebot!")
 
 
-@bot.message_handler(regexp="^sime.+cosa.+fai")
+@bot.message_handler(regexp="^sime.+(cosa|che).+fai")
 def function_name(message):
-    print(message)
+    username = message.from_user.username
     msgs = RandomList(["E come cosa faccio, prendo il sud",
-                       "Invado il sud"])
+                       f"Ma secondo te {username}? Invado il sud!"])
     bot.reply_to(message, msgs.random())
 
+@bot.message_handler(regexp="^sime.+dove.+sei")
+def function_name(message):
+    username =message.from_user.username
+    msgs = RandomList([f"Ma che domande {username}, sono a Sud!",
+                       f"Ma come {username}. Sto andando a sud!"])
+    bot.reply_to(message, msgs.random())
 
 @bot.message_handler(regexp="dario|oirad")
 def function_name(message):
